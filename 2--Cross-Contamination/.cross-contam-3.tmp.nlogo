@@ -10,7 +10,7 @@ to setup [both-sides?]
   clear-all
   set-default-shape turtles "circle"
   set shrink 0
-  draw-walls
+;  draw-walls
   create-waters 100         ;; makes 100 blue water molecules
     [ set color blue
       randomize ]                 ;; and puts them on both sides
@@ -134,7 +134,7 @@ to shrink-or-expand [amount]
   if (shrink >= max-pycor - 2)
     [ set shrink max-pycor - 2 ]
   clear-patches
-  draw-walls
+  draw-walls-2
   ;; make sure no turtles are embedded in the walls
   ask turtles with [(xcor > 0) and (pcolor = green)]
     [ randomize-right ]
@@ -340,7 +340,7 @@ window-edge
 window-edge
 2
 12
-2.0
+-29.0
 1
 1
 NIL
@@ -756,7 +756,7 @@ false
 Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
 @#$#@#$#@
-NetLogo 6.2.0
+NetLogo 6.3.0
 @#$#@#$#@
 setup false
 @#$#@#$#@

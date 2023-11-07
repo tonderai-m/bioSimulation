@@ -1,8 +1,18 @@
 globals [ bin_ct  bin_ct1  ]
 
 to setup
-  set bin_ct 9
-  set bin_ct1 7
+  set bin_ct 0
+  set bin_ct1 0
+end
+;; The whole idea of this code is to do a mass transfear and mass balance
+;; Mass conservation is important when what we are doing is
+to without_randomization
+ repeat Obeject_A * p [ set bin_ct bin_ct + 1]
+ repeat Obeject_B * z [ set bin_ct1 bin_ct1 + 1 ]
+ set Obeject_A Obeject_A - bin_ct + bin_ct1
+ set Obeject_B Obeject_B  - bin_ct1 + bin_ct
+ set bin_ct 0
+ set bin_ct1 0
 end
 
 to binomial
@@ -42,10 +52,10 @@ ticks
 30.0
 
 BUTTON
-39
-453
-114
-486
+13
+464
+88
+497
 NIL
 binomial
 T
@@ -59,40 +69,40 @@ NIL
 1
 
 SLIDER
-15
-108
-187
-141
+8
+126
+180
+159
 Obeject_A
 Obeject_A
 0
 100
-31.0
+58.0
 0.5
 1
 NIL
 HORIZONTAL
 
 SLIDER
-15
-142
-187
-175
+8
+160
+180
+193
 p
 p
 0
 1
-0.85
+0.5
 0.05
 1
 NIL
 HORIZONTAL
 
 MONITOR
-14
-313
-160
-358
+15
+333
+161
+378
 NIL
 Obeject_A + Obeject_B
 17
@@ -100,10 +110,10 @@ Obeject_A + Obeject_B
 11
 
 BUTTON
-27
-33
-91
-66
+19
+29
+83
+62
 NIL
 Setup
 NIL
@@ -117,40 +127,40 @@ NIL
 1
 
 SLIDER
-8
-218
-180
-251
+9
+238
+181
+271
 Obeject_B
 Obeject_B
 0
 100
-55.0
+142.0
 1
 1
 NIL
 HORIZONTAL
 
 SLIDER
-8
-253
-180
-286
+9
+273
+181
+306
 z
 z
 0
 1
-0.35
+0.2
 0.05
 1
 NIL
 HORIZONTAL
 
 BUTTON
-39
-412
-102
-445
+15
+417
+78
+450
 Next
 binomial
 NIL
@@ -161,6 +171,33 @@ NIL
 NIL
 NIL
 NIL
+1
+
+BUTTON
+15
+382
+155
+415
+NIL
+without_randomization
+NIL
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
+1
+
+TEXTBOX
+14
+92
+164
+120
+Research transfear equalibrium
+11
+15.0
 1
 
 @#$#@#$#@
@@ -505,7 +542,7 @@ false
 Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
 @#$#@#$#@
-NetLogo 6.2.0
+NetLogo 6.3.0
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
