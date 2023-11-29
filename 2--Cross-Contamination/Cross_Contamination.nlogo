@@ -4,8 +4,12 @@ to setup
   set bin_ct 0
   set bin_ct1 0
 end
+
 ;; The whole idea of this code is to do a mass transfear and mass balance
-;; Mass conservation is important when what we are doing is
+;; Mass is always conserved there is no net gain or loss inside the system
+;; We only this process will happen once the longer this phenomenon happens it will reach equalibrium
+;; Shown in the excel
+
 to without_randomization
  repeat Obeject_A * p [ set bin_ct bin_ct + 1]
  repeat Obeject_B * z [ set bin_ct1 bin_ct1 + 1 ]
